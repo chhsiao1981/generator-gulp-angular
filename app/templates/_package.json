@@ -25,6 +25,7 @@
     "gulp-minify-html": "~0.1.7",
     "gulp-inject": "~1.0.2",
     "gulp-protractor": "~0.0.11",
+    "gulp-wrap": "~0.5.0",
     "gulp-karma": "~0.0.4",<% if (props.cssPreprocessor.key !== 'none') { %>
     "<%= props.cssPreprocessor.module %>": "<%= props.cssPreprocessor.version %>",<% } if (props.jsPreprocessor.key !== 'none') { %>
     "<%= props.jsPreprocessor.module %>": "<%= props.jsPreprocessor.version %>",<% } if (props.jsPreprocessor.srcExtension === 'es6') { %>
@@ -35,7 +36,8 @@
     "jshint-stylish": "~1.0.0",
     "wiredep": "~2.2.0",
     "karma-jasmine": "~0.3.1",
-    "karma-phantomjs-launcher": "~0.1.4",
+    "karma-phantomjs-launcher": "~0.1.4", <% if (props.jsPreprocessor.key === 'livescript') { %>
+    "karma-livescript-preprocessor": "~0.1.0",<% } %>
     "require-dir": "~0.1.0",
     "browser-sync": "~1.7.1",
     "http-proxy": "~1.7.0",

@@ -1177,6 +1177,55 @@ describe('gulp-angular generator', function () {
     });
   });
 
+  describe('with prompt: [Livescript]', function () {
+    before(function() {
+      optionCase = _.assign(_.cloneDeep(defaultOptions), skipOptions);
+      promptCase = _.assign(_.cloneDeep(defaultPrompts), {
+        jsPreprocessor: prompts.jsPreprocessor.values['livescript']
+      });
+    });
+
+    it('should add dependency for Livescript (Remove the .ls in expectedFileLs if the corresponding template .js/.ls does not exist any more)', function (done) {
+      gulpAngular.run({}, function() {
+        var expectedFileLs = [
+          'gulp/e2e-tests.ls',
+          'gulp/proxy.ls',
+          'karma.conf.ls',
+          'protractor.conf.ls',
+          'e2e/main.spec.ls',
+          'e2e/main.po.ls',
+          'gulpfile.ls',
+          'gulp/build.ls',
+          'gulp/consolidate.ls',
+          'gulp/watch.ls',
+          'gulp/wiredep.ls',
+          'gulp/server.ls',
+          'gulp/unit-tests.ls',
+          'src/app/index.ls',
+          "src/app/main/main.controller.ls",
+          "src/app/main/main.controller.spec.ls",
+          "src/components/navbar/navbar.controller.ls"
+        ];
+
+        var expectedNoJsFiles = [];
+        for(var eachFile in expectedFileLs) {
+          expectedNoJsFiles.push(eachFile.replace(/\.ls$/, '.js'));
+        }
+
+        assert.file(expectedFileLs);
+
+        assert.noFile(expectedNoJsFiles);
+
+        assert.fileContent([
+          ['package.json', libRegexp('gulp-livescript', prompts.jsPreprocessor.values['livescript'].version)],
+          ['package.json', libRegexp('karma-livescript-preprocessor', '~0.1.0')]
+        ]);
+
+        done();
+      });
+    });
+  });
+
   // For future case
   /*
   describe('with prompt: []', function () {

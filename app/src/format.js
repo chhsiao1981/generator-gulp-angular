@@ -55,6 +55,9 @@ module.exports = function () {
     .valueOf()
     .join(', ');
 
+  // For LiveScript module dependencies
+  this.modulesDependenciesLs = this.modulesDependencies.replace(/, /g, ' ').replace(/'/g, '');
+
   // Format list techs used to generate app included in main view of sample
   var listTechs = require('../techs.json');
 
@@ -187,8 +190,6 @@ module.exports = function () {
 
     if(isJsPreprocessor) {
       src = src.replace(/\.js$/, '.' + this.props.jsPreprocessor.srcExtension);
-    }
-    if(isJsPreprocessor) {
       dest = dest.replace(/\.js$/, '.' + this.props.jsPreprocessor.extension);
     }
 
@@ -210,8 +211,6 @@ module.exports = function () {
 
     if(isJsPreprocessor) {
       src = src.replace(/\.js$/, '.' + this.props.jsPreprocessor.srcExtension);
-    }
-    if(isJsPreprocessor) {
       dest = dest.replace(/\.js$/, '.' + this.props.jsPreprocessor.extension);
     }
 
