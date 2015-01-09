@@ -1,0 +1,14 @@
+nav.navbar(ng-controller="NavbarCtrl")
+  a(href="https://github.com/Swiip/generator-gulp-angular") Gulp Angular
+
+  ul
+    li.active
+      a(ng-href="#") Home
+    li
+      a(ng-href="#") About
+    li
+      a(ng-href="#") Contact
+
+  ul
+    li
+      a(ng-href="#") Current date: {{ date | date:'yyyy-MM-dd' }}

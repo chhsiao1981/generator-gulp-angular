@@ -1,0 +1,1 @@
+../../../app/templates/gulp/_watch.js

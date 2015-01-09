@@ -147,6 +147,134 @@ The root directory generated for a app with name `gulpAngular` :
 * **TODO** Script loader: Require, Browserify, none
 * **TODO** Test framework: Jasmine, Mocha, Qunit
 
+## Sub-tasks
+
+### Usage
+* `yo gulp-angular:section [[parent-section.]section]`
+* `yo gulp-angular:module [[section.]module]` (section default to '')
+* `yo gulp-angular:controller [[section.module.]controller]` (section.module default to '')
+* `yo gulp-angular:view [[section.module.].view]` (section.module default to '')
+
+* `yo gulp-angular:component`
+* `yo gulp-angular:constant [[component.]constant]` (component default to [constant])
+* `yo gulp-angular:factory [[component.]factory]` (component default to [factory])
+* `yo gulp-angular:service [[component.]service]` (component default to [service])
+* `yo gulp-angular:value [[component.]value]` (component default to [value])
+* `yo gulp-angular:directive [[component.]directive]` (component default to [directive])
+* `yo gulp-angular:filter [[component.]filter]` (component default to [filter])
+
+* `yo gulp-angular:bp`
+
+### module
+generate:
+<pre>
+  [section]/[module]/
+                     [module].js
+                     [module]_test.js
+                     [module]-controller.js
+                     [module]-controller_test.js
+</pre>
+
+### controller
+generate:
+<pre>
+  [section/module]/
+                   [controller]-controller.js
+                   [controller]-controller_test.js
+</pre>
+
+    angular.module('[section.module]')
+        .controller('[ControllerPascalCamelCaseCtrl]')
+
+### view
+generate:
+<pre>
+  [section/module]/
+                   [view].html
+                   [view].css
+</pre>
+
+### component
+generate:
+<pre>
+  components/[parent-component/component]/
+                                          [component].js
+                                          [component]_test.js
+</pre>
+
+    angular.module('[parent-component.component]', [])
+
+### service
+generate:
+<pre>
+  components/[parent-component/component]/
+                                          [service]-service.js
+                                          [service]-service_test.js
+</pre>
+
+    angular.module('[parent-component.component]')
+        .service('[serviceCamelCase]')
+
+### filter
+generate:
+<pre>
+  components/[parent-component/component]/
+                                          [filter]-filter.js
+                                          [filter]-filter_test.js
+</pre>
+
+    angular.module('[parent-component.component]')
+        .filter('[filterCamelCase]')
+
+### directive
+generate:
+<pre>
+  components/[parent-component/component]/
+                                          [directive]-directive.js
+                                          [directive]-directive_test.js
+                                          [directive].html
+                                          [directive].css
+</pre>
+
+    angular.module('[section.module]')
+        .directive('[directiveCamelCase]')
+
+### bp
+generate:
+<pre>
+    src/
+        index.html
+        index.css
+        app.js
+        app_test.js
+        app-controller.js
+        app-controller_test.js
+        navbar-controller.js
+        navbar-controller_test.js
+        main.html
+        main.css
+        main-controller.js
+        main-controller_test.js
+        components/
+                   version/
+                           version.js
+                           version_test.js
+                           version-c-constant.js
+                           version-c-constant_test.js
+                           version-f-factory.js
+                           version-f-factory_test.js
+                           version-s-service.js
+                           version-s-service_test.js
+                           version-v-value.js
+                           version-v-value_test.js
+                           app-version-directive.html
+                           app-version-directive.css
+                           app-version-directive.js
+                           app-version-directive_test.js
+                           interpolate-filter.js
+                           interpolate-filter_test.js
+</pre>
+
 ## Known issue
 
 Protractor tests are not stable with PhantomJS, at least not on my Mac. I'm getting unpredictable disconnections between webdriverjs and phantomjs.

@@ -1,0 +1,1 @@
+../../../app/templates/gulp/e2e-tests.js
