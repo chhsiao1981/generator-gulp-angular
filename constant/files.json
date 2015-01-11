@@ -1,0 +1,6 @@
+{
+  "srcFiles": [
+    "constant.ls",
+    "constant_test.ls"
+  ]
+}

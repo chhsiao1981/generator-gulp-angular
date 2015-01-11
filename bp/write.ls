@@ -6,7 +6,6 @@ module.exports = ->
   _ = @_
 
   process = (content) ~>
-    content-to-string = content.to-string!
     _.template (content.to-string!.replace /\n<%/g, '<%'), @
   
   copy = (src, dest, processing) ~>
