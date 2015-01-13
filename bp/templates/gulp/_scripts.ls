@@ -3,7 +3,7 @@ gulp = require 'gulp'
 paths = gulp.paths
 
 $ = (require 'gulp-load-plugins')!
-jshintrc = reqire './.jshintrc'
+jshintrc = require '../.jshintrc'
 jshintrc.boss = true
 
 gulp.task 'scripts' ->

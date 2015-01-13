@@ -1,7 +1,7 @@
 "staticFiles": [
   ".bowerrc"
   ".editorconfig"
-  ".jshintrc"
+  ".jshintrc.json"
 
   "gulp/e2e-tests.js"
   "gulp/proxy.js"

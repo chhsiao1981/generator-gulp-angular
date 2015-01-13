@@ -1,0 +1,6 @@
+{
+  "srcFiles": [
+    "directive.ls",
+    "directive_test.ls"
+  ]
+}

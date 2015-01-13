@@ -1,0 +1,6 @@
+{
+  "srcFiles": [
+    "controller.ls",
+    "controller_test.ls"
+  ]
+}

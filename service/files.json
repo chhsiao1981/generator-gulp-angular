@@ -1,0 +1,6 @@
+{
+  "srcFiles": [
+    "service.ls",
+    "service_test.ls"
+  ]
+}

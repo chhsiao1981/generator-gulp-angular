@@ -1,5 +1,5 @@
 module.exports = (config) ->
-  config.set {
+  config.set do
     auto-watch: false,
     frameworks: <[ jasmine ]>
     browsers: <[ PhantomJS ]>
@@ -10,8 +10,3 @@ module.exports = (config) ->
     ]
     preprocessors:
       '**/*.ls': ['livescript']
-
-    livescript-preprocessor:
-      options:
-        bare: true
-      transform-path: (path) -> path.replace/\.js$/, '.ls'

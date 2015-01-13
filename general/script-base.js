@@ -20,8 +20,8 @@
       this.name = this.appname + '.' + this.name;
       this.section = this.appname + (this.section && this.section !== '.' ? '.' + this.section : '');
       this.module = this._lodashToCamelcase(this.basename);
-      this['class'] = this._lodashToUpperCamelcase(this.basename);
-      return console.log('name:', this.name, 'basename:', this.basename, 'dirname:', this.dirname, 'section:', this.section, 'module:', this.module, 'class:', this['class']);
+      this.classCamelCase = this._lodashToUpperCamelcase(this.basename);
+      return console.log('name:', this.name, 'basename:', this.basename, 'dirname:', this.dirname, 'section:', this.section, 'module:', this.module, 'class-camel-case:', this.classCamelCase);
     },
     _normalizeName: function(name){
       return name = this._upperCamelcaseToCamelcase(this._lodashToCamelcase(name.replace('/', '.')));

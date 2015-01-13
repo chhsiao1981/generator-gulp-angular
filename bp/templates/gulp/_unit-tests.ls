@@ -13,13 +13,15 @@ run-tests = (single-run, done) ->
     dependencies: true,
     dev-dependencies: true
 
-  test-files = bower-deps.js.concat [
+  test-files = [
     paths.tmp + '/**/*.js'
-    paths.tmp + '/**/*_test.js',
-    paths.tmp + '/**/*.mock.js'
+    '!' + paths.tmp + '/**/*_test.js'
   ]
 
   gulp.src test-files
+    .pipe $.angular-filesort!
+    .pipe $.add-src.prepend bower-deps.js
+    .pipe $.add-src.append paths.src + '/**/*_test.ls'
     .pipe $.karma do
       config-file: 'karma.conf.ls',
       action: if single-run then 'run' else 'watch'

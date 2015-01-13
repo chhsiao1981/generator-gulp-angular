@@ -226,6 +226,7 @@ module.exports = ->
 
   @src-templates = template-files.reduce (resolve-paths true .bind @), {}
   @src-templates <<< file-templates
+  # .jshintrc
 
   # static-files
   @static-files = files.static-files.reduce (resolve-paths false .bind @), {}

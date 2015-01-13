@@ -4,7 +4,12 @@ write = ->
   _ = @_
 
   process = (content) ~>
-    _.template (content.to-string!.replace /\n<%/g, '<%'), @
+    console.log 'content:', content.to-string!, 'section:', @section, 'class:', @class
+    content-to-string = content.to-string!.replace /\n<%/g, '<%'
+
+    result = _.template content-to-string, @
+    console.log 'result:', result
+    result
 
   copy = (src, dest, processing) ~>
     dest = utils.replace-prefix dest, @props.paths

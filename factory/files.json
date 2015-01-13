@@ -1,0 +1,6 @@
+{
+  "srcFiles": [
+    "factory.ls",
+    "factory_test.ls"
+  ]
+}

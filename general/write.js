@@ -5,7 +5,12 @@
     var _, process, copy, this$ = this;
     _ = this._;
     process = function(content){
-      return _.template(content.toString().replace(/\n<%/g, '<%'), this$);
+      var contentToString, result;
+      console.log('content:', content.toString(), 'section:', this$.section, 'class:', this$['class']);
+      contentToString = content.toString().replace(/\n<%/g, '<%');
+      result = _.template(contentToString, this$);
+      console.log('result:', result);
+      return result;
     };
     copy = function(src, dest, processing){
       var error;

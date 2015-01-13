@@ -5,10 +5,11 @@ format = ->
   _ = @_
   paths = @props.paths
 
-  resolve-paths = (template) ->
-    (files-object, file) ->
+  resolve-paths = (template) ~>
+    (files-object, file) ~>
       src = file
-      dest = file
+      dest = @dirname + '/' + @basename + '-' + file
+
       if template
         basename = path.basename file
         src = file.replace basename, '_' + basename
@@ -20,7 +21,12 @@ format = ->
           src = src.replace /\.js$/, '.' + @props.js-preprocessor.src-extension
           dest = dest.replace /\.js$/, '.' + @props.js-preprocessor.extension
 
-      files-object[src] = paths.src + '/' + dest
+      console.log 'src:', src, 'dest:', paths.src + '/' + dest
+
+      src-dir = paths.src + if @class-name in <[ controller section module ]> then '' else '/components'
+      console.log 'src-dir:', src-dir
+
+      files-object[src] = src-dir + '/' + dest
 
       files-object
 

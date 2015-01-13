@@ -1,4 +1,4 @@
-describe 'constant: <%= name  %>', (...) ->
+describe 'value: <%= name  %>', (...) ->
   before-each module '<%= section %>'
 
   <%= module %> = {}

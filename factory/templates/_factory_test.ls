@@ -1,4 +1,4 @@
-describe 'constant: <%= name  %>', (...) ->
+describe 'factory: <%= name  %>', (...) ->
   before-each module '<%= section %>'
 
   <%= module %> = {}
@@ -6,4 +6,4 @@ describe 'constant: <%= name  %>', (...) ->
     <%= module %> := _<%= module %>_
 
   it 'should be 42', ->
-    expect(<%= module %>) .to-be 42
+    expect(<%= module %>.some-method!) .to-be 43

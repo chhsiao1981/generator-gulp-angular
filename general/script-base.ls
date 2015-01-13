@@ -19,9 +19,9 @@ general = yeoman.generators.NamedBase.extend do
     @name = @appname + '.' + @name
     @section = @appname + if @section and @section != '.' then '.' + @section else ''
     @module = @_lodash-to-camelcase @basename
-    @class = @_lodash-to-upper-camelcase @basename
+    @class-camel-case = @_lodash-to-upper-camelcase @basename
 
-    console.log 'name:', @name, 'basename:', @basename, 'dirname:', @dirname, 'section:', @section, 'module:', @module, 'class:', @class
+    console.log 'name:', @name, 'basename:', @basename, 'dirname:', @dirname, 'section:', @section, 'module:', @module, 'class-camel-case:', @class-camel-case
 
   _normalize-name: (name) ->
     name = @_upper-camelcase-to-camelcase @_lodash-to-camelcase name.replace '/', '.'
