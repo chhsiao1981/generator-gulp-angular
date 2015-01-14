@@ -1,2 +1,2 @@
 angular.module '<%= section %>'
-  .value '<%= module %>', 42
+  .constant '<%= module %>', 42

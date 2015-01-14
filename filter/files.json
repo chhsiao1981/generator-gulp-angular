@@ -1,0 +1,6 @@
+{
+  "srcFiles": [
+    "filter.ls",
+    "filter_test.ls"
+  ]
+}
