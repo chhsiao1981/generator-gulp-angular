@@ -4,7 +4,7 @@ through = require 'through2'
 
 gulp-livescript = require 'gulp-livescript'
 
-dirs = <[ bp constant controller directive factory filter general module provider section service value view ]>
+dirs = <[ bp constant component controller directive factory filter general module provider service value view ]>
 
 srcs = './{' + (dirs.join ',') + '}/**/*.ls'
 src-dirs = './{' + (dirs.join ',') + '}/**/'

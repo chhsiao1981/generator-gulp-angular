@@ -17,11 +17,12 @@
       this.basename = this._basename(this._camelcaseToLodash(this.name.replace('.', '/')));
       this.dirname = this._dirname(this._camelcaseToLodash(this.name.replace('.', '/')));
       this.section = this._lodashToCamelcase(this.dirname);
+      this.sectionPostfix = this.section;
       this.name = this.appname + '.' + this.name;
       this.section = this.appname + (this.section && this.section !== '.' ? '.' + this.section : '');
       this.module = this._lodashToCamelcase(this.basename);
       this.classCamelCase = this._lodashToUpperCamelcase(this.basename);
-      return console.log('name:', this.name, 'basename:', this.basename, 'dirname:', this.dirname, 'section:', this.section, 'module:', this.module, 'class-camel-case:', this.classCamelCase);
+      return console.log('name:', this.name, 'basename:', this.basename, 'dirname:', this.dirname, 'section:', this.section, 'section-postfix:', this.sectionPotfix, 'module:', this.module, 'class-camel-case:', this.classCamelCase);
     },
     _normalizeName: function(name){
       return name = this._upperCamelcaseToCamelcase(this._lodashToCamelcase(name.replace('/', '.')));
@@ -70,7 +71,16 @@
     _retrieveOptions: function(){},
     prompting: function(){},
     configuring: require('./format'),
-    writing: require('./write'),
+    writing: function(){
+      var ref$;
+      if (this.sectionPostfix && this.sectionPostfix !== '.') {
+        this.composeWith('gulp-angular:' + ((ref$ = this.className) === 'controller' || ref$ === 'module' ? 'module' : 'component'), {
+          args: [this.sectionPostfix]
+        });
+      }
+      return this._writing();
+    },
+    _writing: require('./write'),
     end: function(){
       return this.log(yosay(chalk.green('All Done!')));
     }

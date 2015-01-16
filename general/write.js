@@ -6,10 +6,8 @@
     _ = this._;
     process = function(content){
       var contentToString, result;
-      console.log('content:', content.toString(), 'section:', this$.section, 'class:', this$['class']);
       contentToString = content.toString().replace(/\n<%/g, '<%');
       result = _.template(contentToString, this$);
-      console.log('result:', result);
       return result;
     };
     copy = function(src, dest, processing){

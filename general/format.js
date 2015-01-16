@@ -8,9 +8,10 @@
     paths = this.props.paths;
     resolvePaths = function(template){
       return function(filesObject, file){
-        var src, dest, basename, preprocessorFile, srcDir, ref$;
+        var src, destDir, ref$, dest, basename, preprocessorFile, srcDir;
         src = file;
-        dest = this$.dirname + '/' + this$.basename + '-' + file;
+        destDir = this$.dirname + ((ref$ = this$.className) === 'module' || ref$ === 'component' ? '/' + this$.basename : '');
+        dest = destDir + '/' + this$.basename + '-' + file;
         if (template) {
           basename = path.basename(file);
           src = file.replace(basename, '_' + basename);

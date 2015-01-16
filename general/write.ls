@@ -4,11 +4,9 @@ write = ->
   _ = @_
 
   process = (content) ~>
-    console.log 'content:', content.to-string!, 'section:', @section, 'class:', @class
     content-to-string = content.to-string!.replace /\n<%/g, '<%'
 
     result = _.template content-to-string, @
-    console.log 'result:', result
     result
 
   copy = (src, dest, processing) ~>

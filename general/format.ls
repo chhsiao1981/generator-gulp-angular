@@ -8,7 +8,8 @@ format = ->
   resolve-paths = (template) ~>
     (files-object, file) ~>
       src = file
-      dest = @dirname + '/' + @basename + '-' + file
+      dest-dir = @dirname + if @class-name in <[ module component ]> then '/' + @basename else ''
+      dest = dest-dir + '/' + @basename + '-' + file
 
       if template
         basename = path.basename file

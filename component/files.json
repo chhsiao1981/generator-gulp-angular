@@ -1,0 +1,6 @@
+{
+  "srcFiles": [
+    "component.ls",
+    "component_test.ls"
+  ]
+}
